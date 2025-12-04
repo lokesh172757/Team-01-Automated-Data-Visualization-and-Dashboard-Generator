@@ -95,24 +95,15 @@ project-root/
 
 🧪 Running the Project (Setup Steps)
 1️⃣ Clone the Repository
-git clone <repo-url>
-cd <project-folder>
+git clone https://github.com/lokesh172757/Team-01-Automated-Data-Visualization-and-Dashboard-Generator
+cd Team-01-Automated-Data-Visualization-and-Dashboard-Generator
 
 2️⃣ Setup Frontend
 cd frontend
 npm install
 npm run dev
 
-3️⃣ Setup Backend
-Node.js version:
-cd backend
-npm install
-npm start
 
-Python version:
-cd backend
-pip install -r requirements.txt
-python app.py
 
 📚 API Documentation
 POST /api/upload
