@@ -25,7 +25,7 @@ export const DemoTemplates: React.FC = () => {
       description: `Loaded "${template.name}" with ${template.data.length} rows.`,
     });
   };
-
+//demop template
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
