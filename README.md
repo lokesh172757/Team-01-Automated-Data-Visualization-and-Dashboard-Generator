@@ -1,21 +1,56 @@
-Instant Dashboards from Excel/CSV — No Coding Required
+Instant dashboards from Excel/CSV — Zero manual work.
 
 📝 Problem Statement
 
-Businesses and individuals often rely on raw Excel/CSV files that are hard to interpret. Creating dashboards in tools like Excel, Power BI, or Tableau requires skill and time.
-There is a need for a plug-and-play system where a user can:
+Organizations deal with large amounts of data in spreadsheets.
+Manually converting this data into charts and dashboards using Excel or Power BI is time-consuming and requires technical skills.
 
-Upload structured data
+This project solves that problem by providing a plug-and-play web application where users can:
 
-Automatically detect column types (Numeric, Categorical, Date)
+Upload a dataset
 
-Generate meaningful charts instantly
+Automatically detect column types
 
-Interact with filters
+Instantly generate charts
 
-Download reports
+Apply filters
 
-This project solves that by offering a full-stack automated dashboard generator.
+Download insights
+
+No coding or analytics knowledge needed.
+
+🚀 Features
+Core Functionalities
+
+Upload Excel (.xlsx) / CSV files
+
+Auto type detection (Number, Category, Date)
+
+Auto-generated charts:
+
+Line charts
+
+Bar/Column charts
+
+Pie/Donut charts
+
+Global filters (Date, Category, Range)
+
+Aggregations: SUM, AVG, COUNT
+
+Export chart/report
+
+Responsive dashboard layout
+
+System Capabilities
+
+Intelligent parser
+
+Chart selection logic based on column types
+
+Error-handling for invalid files
+
+Fast rendering for large datasets
 
 🛠️ Tech Stack
 Frontend
@@ -24,49 +59,24 @@ React (Vite + TypeScript)
 
 Tailwind CSS
 
-shadcn/ui components
+shadcn/ui
 
-Recharts (or Plotly/Chart.js depending on your implementation)
+Recharts (or Chart.js / Plotly)
 
 Backend
 
-Node.js (Express) or Python Flask (choose based on your repo)
+(Choose the one your repo uses)
 
-Libraries for parsing:
+Node.js (Express)
+OR
+
+Python (Flask/FastAPI)
+
+File Parsing
 
 CSV → Papaparse / Pandas
 
 Excel → XLSX / OpenPyXL
-
-Data Processing
-
-Type inference (Numeric, Categorical, Temporal)
-
-Auto-chart selection logic
-
-🚀 Features
-
-Upload Excel/CSV
-
-Auto-detect column types
-
-Auto-generate:
-
-Line Charts
-
-Bar Charts
-
-Pie Charts
-
-Global dynamic filtering
-
-Summaries (SUM, AVG, COUNT)
-
-Responsive dashboard
-
-Error handling for corrupted/missing values
-
-Export charts
 
 📁 Folder Structure
 project-root/
@@ -77,7 +87,7 @@ project-root/
 │   │   ├── pages/
 │   │   ├── charts/
 │   │   ├── utils/
-│   │   └── hooks/
+│   │   └── styles/
 │   ├── public/
 │   └── package.json
 │
@@ -93,35 +103,33 @@ project-root/
 │
 └── README.md
 
-🧪 Running the Project (Setup Steps)
-1️⃣ Clone the Repository
+🧪 Setup & Installation
+1️⃣ Clone the repository
 git clone <repo-url>
 cd <project-folder>
 
-2️⃣ Setup Frontend
+2️⃣ Frontend Setup
 cd frontend
 npm install
 npm run dev
 
-3️⃣ Setup Backend
-Node.js version:
+3️⃣ Backend Setup
+Node.js:
 cd backend
 npm install
 npm start
 
-Python version:
-cd backend
+Python:
 pip install -r requirements.txt
 python app.py
 
 📚 API Documentation
 POST /api/upload
 
-Uploads an Excel/CSV file.
+Upload Excel/CSV file.
 
-Request
-multipart/form-data
-Field: file
+Payload
+multipart/form-data → file
 
 Response
 
@@ -131,41 +139,43 @@ Response
     "Revenue": "number",
     "Region": "category"
   },
-  "data": [ ... ]
+  "data": [...]
+}
+
+POST /api/filter
+
+Apply filters and return updated chart data.
+
+Example Response:
+
+{
+  "filteredData": [...],
+  "charts": {
+    "line": [...],
+    "bar": [...],
+    "pie": [...]
+  }
 }
 
 GET /api/summary
 
 Returns aggregated metrics (sum, avg, count).
 
-POST /api/filter
+🖼️ Screenshots
 
-Filters dataset based on:
+(Add your actual images in a screenshots folder)
 
-Date range
+/screenshots
+   upload.png
+   dashboard.png
+   filters.png
 
-Category
 
-Numeric ranges
+Use in README:
 
-Example Response
-
-{
-  "filteredData": [...],
-  "charts": {
-    "lineChart": [...],
-    "barChart": [...],
-    "pieChart": [...]
-  }
-}
-
-🖼️ Screenshots (Add your real screenshots)
-1. Home Page
-
-2. Auto-Generated Dashboard
-
-3. Filters Panel
+![Upload Screen](./screenshots/upload.png)
+![Dashboard](./screenshots/dashboard.png)
 
 🏁 Outcome
 
-A tool that democratizes data analysis by allowing any user to simply upload a spreadsheet and instantly view an interactive dashboard — no data skills required.
+A smart, fast, and user-friendly automated dashboard generator that helps users convert raw spreadsheets into meaningful insights instantly.
