@@ -1,73 +1,173 @@
-# Welcome to your Lovable project
+Instant Dashboards from Excel/CSV — No Coding Required
 
-## Project info
+📝 Problem Statement
 
-**URL**: https://lovable.dev/projects/a7692939-f3ea-45a9-8bc2-1eeeee6227ee
+Businesses and individuals often rely on raw Excel/CSV files that are hard to interpret. Creating dashboards in tools like Excel, Power BI, or Tableau requires skill and time.
+There is a need for a plug-and-play system where a user can:
 
-## How can I edit this code?
+Upload structured data
 
-There are several ways of editing your application.
+Automatically detect column types (Numeric, Categorical, Date)
 
-**Use Lovable**
+Generate meaningful charts instantly
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a7692939-f3ea-45a9-8bc2-1eeeee6227ee) and start prompting.
+Interact with filters
 
-Changes made via Lovable will be committed automatically to this repo.
+Download reports
 
-**Use your preferred IDE**
+This project solves that by offering a full-stack automated dashboard generator.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+🛠️ Tech Stack
+Frontend
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+React (Vite + TypeScript)
 
-Follow these steps:
+Tailwind CSS
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Recharts (or Plotly/Chart.js depending on your implementation)
 
-# Step 3: Install the necessary dependencies.
-npm i
+Backend
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Node.js (Express) or Python Flask (choose based on your repo)
+
+Libraries for parsing:
+
+CSV → Papaparse / Pandas
+
+Excel → XLSX / OpenPyXL
+
+Data Processing
+
+Type inference (Numeric, Categorical, Temporal)
+
+Auto-chart selection logic
+
+🚀 Features
+
+Upload Excel/CSV
+
+Auto-detect column types
+
+Auto-generate:
+
+Line Charts
+
+Bar Charts
+
+Pie Charts
+
+Global dynamic filtering
+
+Summaries (SUM, AVG, COUNT)
+
+Responsive dashboard
+
+Error handling for corrupted/missing values
+
+Export charts
+
+📁 Folder Structure
+project-root/
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── charts/
+│   │   ├── utils/
+│   │   └── hooks/
+│   ├── public/
+│   └── package.json
+│
+├── backend/
+│   ├── routes/
+│   ├── controllers/
+│   ├── services/
+│   ├── utils/
+│   └── server.js (or app.py)
+│
+├── sample-data/
+│   └── dataset.xlsx
+│
+└── README.md
+
+🧪 Running the Project (Setup Steps)
+1️⃣ Clone the Repository
+git clone <repo-url>
+cd <project-folder>
+
+2️⃣ Setup Frontend
+cd frontend
+npm install
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+3️⃣ Setup Backend
+Node.js version:
+cd backend
+npm install
+npm start
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Python version:
+cd backend
+pip install -r requirements.txt
+python app.py
 
-**Use GitHub Codespaces**
+📚 API Documentation
+POST /api/upload
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Uploads an Excel/CSV file.
 
-## What technologies are used for this project?
+Request
+multipart/form-data
+Field: file
 
-This project is built with:
+Response
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+{
+  "columns": {
+    "Month": "date",
+    "Revenue": "number",
+    "Region": "category"
+  },
+  "data": [ ... ]
+}
 
-## How can I deploy this project?
+GET /api/summary
 
-Simply open [Lovable](https://lovable.dev/projects/a7692939-f3ea-45a9-8bc2-1eeeee6227ee) and click on Share -> Publish.
+Returns aggregated metrics (sum, avg, count).
 
-## Can I connect a custom domain to my Lovable project?
+POST /api/filter
 
-Yes, you can!
+Filters dataset based on:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Date range
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Category
+
+Numeric ranges
+
+Example Response
+
+{
+  "filteredData": [...],
+  "charts": {
+    "lineChart": [...],
+    "barChart": [...],
+    "pieChart": [...]
+  }
+}
+
+🖼️ Screenshots (Add your real screenshots)
+1. Home Page
+
+2. Auto-Generated Dashboard
+
+3. Filters Panel
+
+🏁 Outcome
+
+A tool that democratizes data analysis by allowing any user to simply upload a spreadsheet and instantly view an interactive dashboard — no data skills required.
