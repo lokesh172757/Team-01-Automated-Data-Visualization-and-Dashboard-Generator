@@ -14,7 +14,7 @@ const initialFilters: FilterState = {
   dateRange: { start: null, end: null },
   numericRanges: {},
 };
-
+//data content
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
 export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {

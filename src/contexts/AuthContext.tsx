@@ -30,6 +30,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const login = async (email: string, password: string) => {
     // Simulated login - replace with real auth later
+    //authentication added
     await new Promise((resolve) => setTimeout(resolve, 1000));
     
     if (password.length < 6) {
